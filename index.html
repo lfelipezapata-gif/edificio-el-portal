@@ -453,21 +453,25 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
         <input type="range" id="sIng" min="10" max="35" value="20" step="1">
       </div>
       <div class="ctrl">
-        <label>Subsidio según Sisbén</label>
+        <label>Subsidio de la caja de compensación, según Sisbén</label>
         <select id="sSub">
+          <option value="20" selected>Sisbén C9–D20 &mdash; 20 SMMLV</option>
           <option value="30">Sisbén A1–C8 &mdash; 30 SMMLV</option>
-          <option value="20">Sisbén C9–D20 &mdash; 20 SMMLV</option>
-          <option value="0">Sin subsidio</option>
+          <option value="0">Sin subsidio de caja</option>
         </select>
+        <div style="color:var(--suave);font-size:12.5px;margin-top:7px">
+          + <b>VIVA, 7 SMMLV ($12.256.335)</b>, que va siempre y no se elige.
+        </div>
       </div>
       <div class="ctrl">
-        <label>Ahorro previo del hogar</label>
-        <!-- Arranca en $8.000.000 y no en $5.000.000 desde el 9-sep: la cuota
-             inicial que se le pide a cada familia es de $20.000.000, de los
-             cuales VIVA (7 SMMLV = $12.256.335) cubre el 61%. Lo que le queda
-             al hogar de su propio ahorro es $7.743.665. -->
-        <div class="vr" id="vAho">$8.000.000</div>
-        <input type="range" id="sAho" min="0" max="40" value="8" step="1">
+        <label>Cuota inicial en efectivo del hogar</label>
+        <!-- Arranca en $20.000.000 desde el 9-sep: es la cuota inicial
+             INAMOVIBLE que se le pide a cada familia, y va ENCIMA de los
+             subsidios de VIVA, de la caja y del lote — no dentro de ellos.
+             Corregido por el mismo Luis Felipe el 9-sep, despues de una
+             primera version que le restaba VIVA a los $20.000.000. -->
+        <div class="vr" id="vAho">$20.000.000</div>
+        <input type="range" id="sAho" min="0" max="40" value="20" step="1">
       </div>
       <div class="ctrl">
         <label>Palanca del Municipio</label>
@@ -500,8 +504,9 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
       <div class="tarjeta" style="margin-top:20px">
         <table>
           <tr><th>De dónde sale la plata de la familia</th><th class="num">Monto</th></tr>
-          <tr><td>Subsidio</td><td class="num" id="dSub">&mdash;</td></tr>
-          <tr><td>Ahorro previo</td><td class="num" id="dAho">&mdash;</td></tr>
+          <tr><td>Subsidio de la caja de compensación</td><td class="num" id="dCaj">&mdash;</td></tr>
+          <tr><td>Subsidio de VIVA &mdash; 7 SMMLV</td><td class="num" id="dViv">&mdash;</td></tr>
+          <tr><td><b>Cuota inicial en efectivo</b></td><td class="num" id="dAho">&mdash;</td></tr>
           <tr><td>Crédito &mdash; 40% del ingreso, 20 años, 12,39% EA<br>
             <span style="color:var(--ambar);font-size:12.5px" id="dTope"></span></td>
             <td class="num" id="dCre">&mdash;</td></tr>
@@ -538,44 +543,57 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
   <p class="sub">Primero lo inamovible &mdash; sin eso el proyecto no arranca. Después
   cuatro palancas, ninguna de ellas plata en efectivo.</p>
 
-  <h3>Lo inamovible: la cuota inicial</h3>
+  <h3>Lo inamovible: las cuatro patas del cierre</h3>
+  <p class="sub" style="margin-top:-6px">Las cuatro tienen que estar. Si falta una, el
+  proyecto no cierra &mdash; y la cuarta va <b>encima</b> de los subsidios, no dentro
+  de ellos.</p>
   <div class="tarjeta">
     <table>
-      <tr><th>&nbsp;</th><th class="num">Por familia</th><th class="num">Las 20 juntas</th></tr>
-      <tr class="destaca"><td><b>Cuota inicial en la cuenta conjunta de la APV</b><br>
-        <span style="color:var(--suave);font-size:12.5px">consignada antes de la primera
-        paletada, con doble firma &mdash; presidente de la junta y constructor</span></td>
-        <td class="num"><b>$20.000.000</b></td><td class="num"><b>$400.000.000</b></td></tr>
-      <tr><td>De eso, lo que cubre el <b>subsidio de VIVA</b> (7 SMMLV)<br>
-        <span style="color:var(--suave);font-size:12.5px">Empresa de Vivienda de Antioquia
-        &mdash; 61% de la inicial</span></td>
+      <tr><th>Pata</th><th>Quién la pone</th><th class="num">Por familia</th><th class="num">Las 20</th></tr>
+      <tr class="destaca"><td><b>El lote</b><br>
+        <span style="color:var(--suave);font-size:12.5px">subsidio en especie &mdash; predio 025-031121</span></td>
+        <td><b>El Municipio</b></td>
+        <td class="num">en especie</td><td class="num">&mdash;</td></tr>
+      <tr><td><b>Subsidio de VIVA</b> &mdash; 7 SMMLV</td>
+        <td>Empresa de Vivienda de Antioquia</td>
         <td class="num">$12.256.335</td><td class="num">$245.126.700</td></tr>
-      <tr class="destaca"><td><b>Lo que tiene que poner la familia de su ahorro</b></td>
-        <td class="num"><b>$7.743.665</b></td><td class="num"><b>$154.873.300</b></td></tr>
+      <tr><td><b>Subsidio de la caja de compensación</b><br>
+        <span style="color:var(--suave);font-size:12.5px">20 o 30 SMMLV según el Sisbén del hogar</span></td>
+        <td>Comfama</td>
+        <td class="num">$35.018.100<br>a $52.527.150</td>
+        <td class="num">$700.362.000<br>a $1.050.543.000</td></tr>
+      <tr class="destaca"><td><b>CUOTA INICIAL EN EFECTIVO</b><br>
+        <span style="color:var(--suave);font-size:12.5px">consignada en la cuenta conjunta
+        de la APV, con doble firma &mdash; presidente de la junta y constructor</span></td>
+        <td><b>La familia, de su ahorro</b></td>
+        <td class="num"><b>$20.000.000</b></td><td class="num"><b>$400.000.000</b></td></tr>
+      <tr><td>Suman, con la caja en 20 SMMLV</td><td>&nbsp;</td>
+        <td class="num">$67.274.435<br><span style="color:var(--suave);font-size:12.5px">38% del valor</span></td>
+        <td class="num">$1.345.488.700</td></tr>
+      <tr><td>Y el resto lo pone el <b>banco</b></td><td>Crédito hipotecario a 20 años</td>
+        <td class="num">$107.816.065<br><span style="color:var(--suave);font-size:12.5px">62% del valor</span></td>
+        <td class="num">$2.156.321.300</td></tr>
     </table>
   </div>
 
   <div class="nota bien">
-    <b>No es un cobro adicional.</b> Los $20.000.000 son parte de los 100 SMMLV que la
-    familia paga de todas formas &mdash; lo que se pide no es más plata, es que <b>una
-    parte entre al arrancar y no al final</b>. Y con VIVA adentro, a la familia le
-    quedan <b>$7.743.665</b>: para un hogar de 2 salarios mínimos son <b>2,2 meses de
-    ingreso</b>, no siete.
-    <br><br>
-    <b>Por qué es inamovible:</b> el constructor pone toda la obra por delante y cobra
-    al escriturar. Sin una inicial que entre al principio, no hay proyecto que financiar
-    &mdash; y esta es la única de las condiciones que <b>no depende de un trámite ni de
-    una entidad nacional</b>: depende de que las veinte familias que la Alcaldía ya tiene
-    en su lista puedan poner esa inicial.
+    <b>Con las cuatro puestas, la familia cierra.</b> Un hogar de <b>2 salarios mínimos</b>
+    con el subsidio de 20 SMMLV alcanza <b>$195.817.227</b> contra un apartamento de
+    $175.090.500. Y un hogar de <b>1,5</b> también cierra <b>si le sale el subsidio de
+    30</b>. <b>Quitar cualquiera de las cuatro tumba el cierre de casi todos los hogares
+    de la lista</b> &mdash; no es una preferencia de la constructora, es aritmética
+    bancaria: el banco financia hasta el 80% del valor, y ese 20% restante sale de
+    subsidios más inicial.
   </div>
 
   <div class="nota">
-    <b>Y de ahí sale la condición que la hace posible:</b> que <b>VIVA y el subsidio
-    nacional se puedan aplicar como cuota inicial</b> &mdash; girados o pignorados a la
-    cuenta conjunta contra avance de obra. Si los subsidios solo se desembolsan al
-    escriturar, los $20.000.000 tendrían que salir enteros del bolsillo de la familia, y
-    ahí la lista de veinte se vuelve una lista de pocos. <b>Es la misma petición de la
-    cuarta palanca, vista desde el otro lado.</b>
+    <b>Y por eso la inicial en efectivo es la que hay que confirmar primero:</b> es la
+    única de las cuatro que <b>no depende de un trámite ni de una entidad</b> &mdash;
+    depende de cuánto tengan realmente ahorrado las veinte familias que la Alcaldía ya
+    tiene en su lista. <b>$20.000.000 son 11,4 salarios mínimos de plata propia.</b>
+    <b>La pregunta concreta para la Alcaldía: ¿cuánto suma hoy el ahorro programado de
+    esas veinte familias?</b> Ese dato decide si la lista sirve como está o si hay que
+    completarla con elegibles de reemplazo.
   </div>
 
   <h3>Las cuatro palancas</h3>
@@ -617,10 +635,11 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
   <div class="nota">
     <b>Y ese es el número que la cuarta palanca mueve de verdad.</b> Los $1.831 millones
     son con la inicial de $20.000.000 entrando al arrancar y <b>nada más</b> durante los
-    catorce meses. <b>Si los subsidios se giran contra avance de obra en vez de al
-    escriturar, la exposición baja a $1.181 millones</b> &mdash; seiscientos cincuenta
-    millones menos de plata que hay que salir a conseguir. No le cuesta un peso al
-    Municipio: es un cambio de calendario, no de monto.
+    catorce meses. Con los subsidios girados contra avance de obra en vez de al
+    escriturar, <b>la exposición baja a $885 millones</b> con la caja en 20 SMMLV y a
+    <b>$535 millones</b> con la caja en 30. <b>Es casi mil trescientos millones menos de
+    plata que hay que salir a conseguir, y no le cuesta un peso al Municipio: es un
+    cambio de calendario, no de monto.</b>
   </div>
 
   <div class="nota bien">
@@ -748,6 +767,7 @@ pinta(0);
 
 /* ── calculadora del cierre financiero ────────────────── */
 const SMMLV=1750905, TOPE=236372175, BASE=175090500;
+const VIVA=7*SMMLV;              /* $12.256.335 — va siempre, no se elige */
 const TASA=0.1239, ANOS=20, LTV=0.80, CUOTA_ING=0.40;
 const pl=n=>'$'+Math.round(n).toLocaleString('es-CO');
 
@@ -761,7 +781,12 @@ function credito(ingreso){
 function calcular(){
   const smm=+document.getElementById('sIng').value/10;
   const ing=smm*SMMLV;
-  const sub=+document.getElementById('sSub').value*SMMLV;
+  /* VIVA — Empresa de Vivienda de Antioquia — son 7 SMMLV y van SIEMPRE,
+     encima del subsidio de la caja de compensación. Hasta el 9-sep la
+     calculadora no los tenía y por eso subestimaba en $12.256.335 lo que
+     la familia alcanza a cerrar. */
+  const caja=+document.getElementById('sSub').value*SMMLV;
+  const sub=caja+VIVA;
   const aho=+document.getElementById('sAho').value*1e6;
 
   document.getElementById('vIng').textContent=smm.toFixed(1).replace('.',',')+' SMMLV';
@@ -792,7 +817,8 @@ function calcular(){
     : porLTV<porIngreso ? 'Topado por el banco: el crédito no pasa del 80% del valor de la vivienda'
     : '';
 
-  document.getElementById('dSub').textContent=pl(sub);
+  document.getElementById('dCaj').textContent=pl(caja);
+  document.getElementById('dViv').textContent=pl(VIVA);
   document.getElementById('dAho').textContent=pl(aho);
   document.getElementById('dCre').textContent=pl(cre);
   document.getElementById('dTot').textContent=pl(puede);
