@@ -427,7 +427,30 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
 
 <!-- ════════════ LO QUE CUESTA ════════════ -->
 <section id="obra">
-  <h2>El presupuesto, rehecho a precios de 2026</h2>
+  <h2>Cuánto vale el apartamento</h2>
+  <p class="sub">El precio de la vivienda para la familia beneficiaria, y de dónde sale.</p>
+
+  <div class="rejilla r3" id="precioVenta">
+    <div class="cifra ac"><div class="et">Por apartamento</div>
+      <div class="vl">100 SMMLV</div>
+      <div class="nt">$175.090.500 &middot; 62,19 m²</div></div>
+    <div class="cifra"><div class="et">Tope legal VIS 2026</div>
+      <div class="vl">74,1%</div>
+      <div class="nt">del m&aacute;ximo de 135 SMMLV ($236.372.175)</div></div>
+    <div class="cifra"><div class="et">Las 20 viviendas</div>
+      <div class="vl">$3.502 M</div>
+      <div class="nt">$3.501.810.000</div></div>
+  </div>
+
+  <div class="nota bien">
+    <b>Por qué 100 SMMLV y no m&aacute;s.</b> El tope legal de la VIS son 135 SMMLV:
+    este precio va al <b>74% del m&aacute;ximo</b> que la ley permite cobrar.
+    Y quien pone los <b>$1.286 millones</b> que la obra necesita durante los catorce
+    meses, y quien corre el riesgo si una familia no cierra su cr&eacute;dito,
+    <b>es el constructor</b> &mdash; no el Municipio ni las familias.
+  </div>
+
+  <h3>El presupuesto detr&aacute;s del precio, rehecho a 2026</h3>
   <p class="sub">91 precios unitarios reconstruidos. Del archivo original se conservó lo que
   sí vale: las cantidades.</p>
 
@@ -600,21 +623,21 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
         <label>Palanca del Municipio</label>
         <!-- Selección única y no suma de casillas: las palancas NO son
              aditivas. Cada cifra sale corrida del modelo en
-             precio_de_venta.py, y las cuatro juntas dan $133.408.397, no
+             precio_de_venta.py, y las cuatro juntas dan $137.339.553, no
              la suma de las cuatro reducciones ($40,4 M). -->
-        <div class="pal" data-p="171159344"><input type="radio" name="pal">
-          <div>Ninguna &mdash; como está hoy<span class="ah">$171.159.344</span></div></div>
-        <div class="pal on" data-p="146393576"><input type="radio" name="pal" checked>
+        <div class="pal" data-p="175090500"><input type="radio" name="pal">
+          <div>Ninguna &mdash; como está hoy<span class="ah">$175.090.500</span></div></div>
+        <div class="pal on" data-p="150324732"><input type="radio" name="pal" checked>
           <div>Garantiza reemplazar a la familia que no cierra
-          <span class="ah">$146.393.576 &middot; no le cuesta un peso al Municipio</span></div></div>
-        <div class="pal" data-p="162256830"><input type="radio" name="pal">
-          <div>Ejecuta el urbanismo<span class="ah">$162.256.830</span></div></div>
-        <div class="pal" data-p="166839401"><input type="radio" name="pal">
-          <div>Exonera conexiones domiciliarias<span class="ah">$166.839.401</span></div></div>
-        <div class="pal" data-p="168708349"><input type="radio" name="pal">
-          <div>Desembolsa subsidios por avance de obra<span class="ah">$168.708.349</span></div></div>
-        <div class="pal" data-p="133408397"><input type="radio" name="pal">
-          <div>Las cuatro juntas<span class="ah">$133.408.397</span></div></div>
+          <span class="ah">$150.324.732 &middot; no le cuesta un peso al Municipio</span></div></div>
+        <div class="pal" data-p="166187986"><input type="radio" name="pal">
+          <div>Ejecuta el urbanismo<span class="ah">$166.187.986</span></div></div>
+        <div class="pal" data-p="170770557"><input type="radio" name="pal">
+          <div>Exonera conexiones domiciliarias<span class="ah">$170.770.557</span></div></div>
+        <div class="pal" data-p="172639506"><input type="radio" name="pal">
+          <div>Desembolsa subsidios por avance de obra<span class="ah">$172.639.506</span></div></div>
+        <div class="pal" data-p="137339553"><input type="radio" name="pal">
+          <div>Las cuatro juntas<span class="ah">$137.339.553</span></div></div>
       </div>
     </div>
 
@@ -659,7 +682,7 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
 
   <div class="nota mal">
     <b>La tensión del negocio, en una línea.</b> El precio que deja el proyecto tranquilo
-    —$171.159.344— solo lo cierra un hogar con <b>2 SMMLV o más</b> Y subsidio de
+    —$175.090.500— solo lo cierra un hogar con <b>2 SMMLV o más</b> Y subsidio de
     <b>30 SMMLV</b>. Y los hogares de Sisbén A1–C8, que son los que reciben 30 SMMLV,
     rara vez tienen 2 SMMLV formales. <b>Ese es el filtro real, y por eso el perfil de
     ingreso y Sisbén de las veinte familias es el dato que falta.</b>
@@ -683,29 +706,31 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
   <div class="tarjeta">
     <table>
       <tr><th>Palanca</th><th class="num">Baja el precio</th><th class="num">Queda en</th></tr>
-      <tr><td>Ninguna &mdash; como está hoy</td><td class="num">&mdash;</td><td class="num">$171.159.344</td></tr>
+      <tr><td>Ninguna &mdash; como está hoy</td><td class="num">&mdash;</td><td class="num">$175.090.500</td></tr>
       <tr class="destaca"><td><b>Garantiza reemplazar a la familia que no cierra crédito</b><br>
         <span style="color:var(--suave);font-size:12.5px">no le cuesta un peso: la Alcaldía ya tiene la lista de elegibles</span></td>
-        <td class="num">&minus;$24.765.768</td><td class="num">$146.393.576</td></tr>
+        <td class="num">&minus;$24.765.768</td><td class="num">$150.324.732</td></tr>
       <tr><td>Ejecuta el urbanismo<br>
         <span style="color:var(--suave);font-size:12.5px">los 475,10 m² del cuadro de áreas que el presupuesto no cubre</span></td>
-        <td class="num">&minus;$8.902.514</td><td class="num">$162.256.830</td></tr>
+        <td class="num">&minus;$8.902.514</td><td class="num">$166.187.986</td></tr>
       <tr><td>Exonera las conexiones domiciliarias</td>
-        <td class="num">&minus;$4.319.943</td><td class="num">$166.839.401</td></tr>
+        <td class="num">&minus;$4.319.943</td><td class="num">$170.770.557</td></tr>
       <tr><td>Desembolsa los subsidios por avance de obra, no al final</td>
-        <td class="num">&minus;$2.450.994</td><td class="num">$168.708.349</td></tr>
+        <td class="num">&minus;$2.450.994</td><td class="num">$172.639.506</td></tr>
       <tr class="destaca"><td><b>LAS CUATRO JUNTAS</b></td>
-        <td class="num"><b>&minus;$37.750.947</b></td><td class="num"><b>$133.408.397</b></td></tr>
+        <td class="num"><b>&minus;$37.750.947</b></td><td class="num"><b>$137.339.553</b></td></tr>
     </table>
   </div>
 
   <div class="nota bien">
-    <b>Por qué la primera es la que importa.</b> A $171,2 M, con los tres golpes previsibles
-    a la vez —obra +10%, escrituración +6 meses y tres familias que no cierran— el proyecto
-    queda en <b>−$164.042</b>. Al filo del cero. Y el golpe que más pesa no es el sobrecosto
-    de obra: <b>es cada familia que no cierra, que se lleva el precio completo del
-    apartamento.</b> Ese riesgo lo controla la Alcaldía, que tiene la lista. Hoy lo carga
-    el constructor.
+    <b>Por qué la primera es la que importa.</b> El proyecto aguanta tres golpes
+    previsibles &mdash;que la obra se pase un 10%, que la escrituración tarde seis meses
+    más, y que tres de las veinte familias no cierren su crédito&mdash;, pero
+    <b>el que más pesa no es el sobrecosto de obra: es cada familia que no cierra</b>,
+    porque se lleva el precio completo de un apartamento ya construido.
+    <b>Ese riesgo lo controla la Alcaldía, que tiene la lista de elegibles. Hoy lo carga
+    entero el constructor</b>, y garantizar el reemplazo no le cuesta al Municipio
+    un solo peso.
   </div>
 
   <h3>Y lo que necesitamos saber, no pedir</h3>
@@ -964,7 +989,7 @@ function pinta(i){
 pinta(0);
 
 /* ── calculadora del cierre financiero ────────────────── */
-const SMMLV=1750905, TOPE=236372175, BASE=171159344;
+const SMMLV=1750905, TOPE=236372175, BASE=175090500;
 const TASA=0.1239, ANOS=20, LTV=0.80, CUOTA_ING=0.40;
 const pl=n=>'$'+Math.round(n).toLocaleString('es-CO');
 
