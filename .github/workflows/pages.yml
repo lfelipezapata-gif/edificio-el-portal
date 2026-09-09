@@ -1,0 +1,47 @@
+# Publica la presentacion en GitHub Pages.
+#
+# POR QUE UN WORKFLOW Y NO EL INTERRUPTOR DE LA CONFIGURACION
+# -----------------------------------------------------------
+# El POST a /repos/.../pages que activa Pages quedo bloqueado desde la
+# sesion, y el interruptor de la pantalla de Settings no guardo en dos
+# intentos. `actions/configure-pages` con `enablement: true` ACTIVA Pages
+# por si mismo usando el token del propio repositorio, asi que el
+# interruptor deja de hacer falta.
+name: Publicar la presentacion
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.despliegue.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Activar Pages si hace falta
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Empaquetar el sitio
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Desplegar
+        id: despliegue
+        uses: actions/deploy-pages@v4
