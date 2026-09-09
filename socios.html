@@ -874,14 +874,17 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
   </div>
 
   <div class="nota bien">
-    <b>Por qué la primera es la que importa.</b> El proyecto aguanta tres golpes
-    previsibles &mdash;que la obra se pase un 10%, que la escrituración tarde seis meses
-    más, y que tres de las veinte familias no cierren su crédito&mdash;, pero
-    <b>el que más pesa no es el sobrecosto de obra: es cada familia que no cierra</b>,
-    porque se lleva el precio completo de un apartamento ya construido.
-    <b>Ese riesgo lo controla la Alcaldía, que tiene la lista de elegibles. Hoy lo carga
-    entero el constructor</b>, y garantizar el reemplazo no le cuesta al Municipio
-    un solo peso.
+    <b>Por qué la primera es la que importa, y por qué cambió de razón.</b> Mientras las
+    veinte familias fueran un grupo cerrado, la familia que no cerraba se llevaba
+    <b>el precio completo de un apartamento ya construido</b>. Con la bolsa de la Oficina
+    de Vivienda detrás <b>la unidad no se pierde: se reemplaza</b>, y lo que cuesta es
+    <b>tiempo</b> &mdash; los meses que el edificio pasa financiado esperando que el
+    reemplazo cierre.
+    <br><br>
+    <b>Eso hace al proyecto mucho más resistente, y deja el riesgo en un solo sitio:
+    cuánto se demora la caja en aprobar.</b> Y ahí es donde el Municipio es decisivo,
+    sin poner un peso: <b>la carta de priorización, los criterios de selección y la
+    bolsa como banco de reemplazos son las tres cosas que acortan ese tiempo.</b>
   </div>
 
   <h3>El techo duro: siete subsidios aprobados en toda la bolsa</h3>
@@ -906,6 +909,70 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
     <br><br>
     <b>Conclusión: el cuello de botella no es la elegibilidad ni la selección. Es la
     velocidad de aprobación de la caja.</b>
+  </div>
+
+  <h4 style="font-size:15px;font-weight:600;margin:26px 0 12px;color:var(--crema)">
+    Y esta es la prueba de estrés rehecha con eso &mdash; <span style="color:var(--suave);font-weight:400">
+    `python3 estres_2026.py`</span></h4>
+  <div class="tarjeta">
+    <table>
+      <tr><th>Escenario</th><th class="num">Utilidad</th><th class="num">Margen</th></tr>
+      <tr><td>Todo como está previsto</td>
+        <td class="num">$913.529.701</td><td class="num">26,1%</td></tr>
+      <tr><td>La obra se pasa 10%</td>
+        <td class="num">$700.321.769</td><td class="num">20,0%</td></tr>
+      <tr><td>La obra se pasa 20%</td>
+        <td class="num">$487.113.837</td><td class="num">13,9%</td></tr>
+      <tr><td>Escrituración de todas +6 meses</td>
+        <td class="num">$757.021.701</td><td class="num">21,6%</td></tr>
+      <tr><td>13 unidades sustituidas al mes 10 <span style="color:var(--suave);font-size:12.5px">(+6 m cada una)</span></td>
+        <td class="num">$718.974.674</td><td class="num">20,5%</td></tr>
+      <tr><td>7 unidades sin reemplazo aprobado <span style="color:var(--suave);font-size:12.5px">(+12 m cargadas)</span></td>
+        <td class="num">$704.008.903</td><td class="num">20,1%</td></tr>
+      <tr class="destaca"><td><b>PEOR CASO REALISTA</b><br>
+        <span style="color:var(--suave);font-size:12.5px">obra +10% &middot; escrituración
+        +6 m &middot; 7 sustituidas &middot; 6 sin reemplazo</span></td>
+        <td class="num"><b>$244.176.225</b></td><td class="num"><b>7,0%</b></td></tr>
+      <tr><td>Catástrofe <span style="color:var(--suave);font-size:12.5px">obra +20%,
+        escrit. +6 m, y las 20 unidades castigadas a la vez</span></td>
+        <td class="num" style="color:var(--rojo)">&minus;$193.840.395</td>
+        <td class="num" style="color:var(--rojo)">&minus;5,5%</td></tr>
+    </table>
+  </div>
+
+  <div class="nota bien">
+    🟢 <b>El punto de quiebre está en 18 de las 20 unidades sin reemplazo aprobado</b>,
+    con obra +10% y escrituración +6 meses. Con 17 todavía queda utilidad.
+    <b>La prueba vieja decía que TRES familias que no cerraran dejaban el proyecto en
+    rojo</b> &mdash; decía eso porque suponía que la unidad se perdía. Con bolsa detrás
+    se financia, no se pierde, <b>y el proyecto pasa de frágil a robusto sin que haya
+    cambiado un solo peso del presupuesto.</b>
+  </div>
+
+  <div class="nota">
+    <b>Y aquí se ve cuánto vale la cuarta palanca.</b> El peor caso realista, según lo que
+    alcance a entrar a la cuenta conjunta durante los catorce meses:
+    <table style="margin-top:11px">
+      <tr><th>Recaudo en obra</th><th class="num">Peor caso</th><th class="num">Margen</th><th class="num">Exposición</th></tr>
+      <tr><td>Solo la inicial &mdash; 11,4%</td><td class="num">$244.176.225</td>
+        <td class="num">7,0%</td><td class="num">$2.010 M</td></tr>
+      <tr><td>+ VIVA girado en obra &mdash; 18,4%</td><td class="num">$308.778.471</td>
+        <td class="num">8,8%</td><td class="num">$1.765 M</td></tr>
+      <tr class="destaca"><td>+ VIVA + caja de 20 &mdash; 38,4%</td><td class="num">$490.192.514</td>
+        <td class="num">14,0%</td><td class="num">$1.101 M</td></tr>
+      <tr><td>+ VIVA + caja de 30 &mdash; 48,4%</td><td class="num">$578.205.502</td>
+        <td class="num">16,5%</td><td class="num">$801 M</td></tr>
+    </table>
+    <b>Girar los subsidios contra avance de obra duplica la utilidad del peor caso y le
+    quita $900 millones a la exposición.</b> No cuesta un peso: es calendario.
+  </div>
+
+  <div class="nota mal">
+    <b>Lo que en esta tabla es supuesto mío y no dato, para que se pueda discutir:</b>
+    que un reemplazo tarda <b>6 meses</b> en cerrar, que una unidad sin reemplazo
+    aprobado se carga <b>12 meses</b>, y que el retraso cuesta financiar el <b>valor
+    completo</b> de la unidad (el saldo entra tarde y además hay que devolverle la
+    inicial a la familia que sale). <b>Mover esos tres números mueve toda la tabla.</b>
   </div>
 
   <div class="nota">
