@@ -462,28 +462,17 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
       </div>
       <div class="ctrl">
         <label>Ahorro previo del hogar</label>
-        <div class="vr" id="vAho">$5.000.000</div>
-        <input type="range" id="sAho" min="0" max="40" value="5" step="1">
+        <!-- Arranca en $8.000.000 y no en $5.000.000 desde el 9-sep: la cuota
+             inicial que se le pide a cada familia es de $20.000.000, de los
+             cuales VIVA (7 SMMLV = $12.256.335) cubre el 61%. Lo que le queda
+             al hogar de su propio ahorro es $7.743.665. -->
+        <div class="vr" id="vAho">$8.000.000</div>
+        <input type="range" id="sAho" min="0" max="40" value="8" step="1">
       </div>
       <div class="ctrl">
         <label>Palanca del Municipio</label>
-        <!-- Selección única y no suma de casillas: las palancas NO son
-             aditivas. Cada cifra sale corrida del modelo en
-             precio_de_venta.py, y las cuatro juntas dan $137.339.553, no
-             la suma de las cuatro reducciones ($40,4 M). -->
-        <div class="pal" data-p="175090500"><input type="radio" name="pal">
-          <div>Ninguna &mdash; como está hoy<span class="ah">$175.090.500</span></div></div>
-        <div class="pal on" data-p="150324732"><input type="radio" name="pal" checked>
-          <div>Garantiza reemplazar a la familia que no cierra
-          <span class="ah">$150.324.732 &middot; no le cuesta un peso al Municipio</span></div></div>
-        <div class="pal" data-p="166187986"><input type="radio" name="pal">
-          <div>Ejecuta el urbanismo<span class="ah">$166.187.986</span></div></div>
-        <div class="pal" data-p="170770557"><input type="radio" name="pal">
-          <div>Exonera conexiones domiciliarias<span class="ah">$170.770.557</span></div></div>
-        <div class="pal" data-p="172639506"><input type="radio" name="pal">
-          <div>Desembolsa subsidios por avance de obra<span class="ah">$172.639.506</span></div></div>
-        <div class="pal" data-p="137339553"><input type="radio" name="pal">
-          <div>Las cuatro juntas<span class="ah">$137.339.553</span></div></div>
+        <div class="pal on" data-p="175090500"><input type="radio" name="pal" checked>
+          <div>El precio de hoy<span class="ah">$175.090.500 &middot; 100 SMMLV</span></div></div>
       </div>
     </div>
 
@@ -546,25 +535,63 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
 <!-- ════════════ LO QUE PEDIMOS ════════════ -->
 <section id="pedido">
   <h2>Lo que le pedimos al Municipio</h2>
-  <p class="sub">Cuatro palancas. Ninguna es plata en efectivo, y la primera no le cuesta
-  un peso.</p>
+  <p class="sub">Primero lo inamovible &mdash; sin eso el proyecto no arranca. Después
+  cuatro palancas, ninguna de ellas plata en efectivo.</p>
 
+  <h3>Lo inamovible: la cuota inicial</h3>
   <div class="tarjeta">
     <table>
-      <tr><th>Palanca</th><th class="num">Baja el precio</th><th class="num">Queda en</th></tr>
-      <tr><td>Ninguna &mdash; como está hoy</td><td class="num">&mdash;</td><td class="num">$175.090.500</td></tr>
+      <tr><th>&nbsp;</th><th class="num">Por familia</th><th class="num">Las 20 juntas</th></tr>
+      <tr class="destaca"><td><b>Cuota inicial en la cuenta conjunta de la APV</b><br>
+        <span style="color:var(--suave);font-size:12.5px">consignada antes de la primera
+        paletada, con doble firma &mdash; presidente de la junta y constructor</span></td>
+        <td class="num"><b>$20.000.000</b></td><td class="num"><b>$400.000.000</b></td></tr>
+      <tr><td>De eso, lo que cubre el <b>subsidio de VIVA</b> (7 SMMLV)<br>
+        <span style="color:var(--suave);font-size:12.5px">Empresa de Vivienda de Antioquia
+        &mdash; 61% de la inicial</span></td>
+        <td class="num">$12.256.335</td><td class="num">$245.126.700</td></tr>
+      <tr class="destaca"><td><b>Lo que tiene que poner la familia de su ahorro</b></td>
+        <td class="num"><b>$7.743.665</b></td><td class="num"><b>$154.873.300</b></td></tr>
+    </table>
+  </div>
+
+  <div class="nota bien">
+    <b>No es un cobro adicional.</b> Los $20.000.000 son parte de los 100 SMMLV que la
+    familia paga de todas formas &mdash; lo que se pide no es más plata, es que <b>una
+    parte entre al arrancar y no al final</b>. Y con VIVA adentro, a la familia le
+    quedan <b>$7.743.665</b>: para un hogar de 2 salarios mínimos son <b>2,2 meses de
+    ingreso</b>, no siete.
+    <br><br>
+    <b>Por qué es inamovible:</b> el constructor pone toda la obra por delante y cobra
+    al escriturar. Sin una inicial que entre al principio, no hay proyecto que financiar
+    &mdash; y esta es la única de las condiciones que <b>no depende de un trámite ni de
+    una entidad nacional</b>: depende de que las veinte familias que la Alcaldía ya tiene
+    en su lista puedan poner esa inicial.
+  </div>
+
+  <div class="nota">
+    <b>Y de ahí sale la condición que la hace posible:</b> que <b>VIVA y el subsidio
+    nacional se puedan aplicar como cuota inicial</b> &mdash; girados o pignorados a la
+    cuenta conjunta contra avance de obra. Si los subsidios solo se desembolsan al
+    escriturar, los $20.000.000 tendrían que salir enteros del bolsillo de la familia, y
+    ahí la lista de veinte se vuelve una lista de pocos. <b>Es la misma petición de la
+    cuarta palanca, vista desde el otro lado.</b>
+  </div>
+
+  <h3>Las cuatro palancas</h3>
+  <div class="tarjeta">
+    <table>
+      <tr><th>Palanca</th><th>Qué le cuesta al Municipio</th></tr>
       <tr class="destaca"><td><b>Garantiza reemplazar a la familia que no cierra crédito</b><br>
-        <span style="color:var(--suave);font-size:12.5px">no le cuesta un peso: la Alcaldía ya tiene la lista de elegibles</span></td>
-        <td class="num">&minus;$24.765.768</td><td class="num">$150.324.732</td></tr>
+        <span style="color:var(--suave);font-size:12.5px">la Alcaldía ya tiene la lista de elegibles</span></td>
+        <td><b>Nada — ni un peso</b></td></tr>
       <tr><td>Ejecuta el urbanismo<br>
         <span style="color:var(--suave);font-size:12.5px">los 475,10 m² del cuadro de áreas que el presupuesto no cubre</span></td>
-        <td class="num">&minus;$8.902.514</td><td class="num">$166.187.986</td></tr>
+        <td>Obra que ya hace con su maquinaria</td></tr>
       <tr><td>Exonera las conexiones domiciliarias</td>
-        <td class="num">&minus;$4.319.943</td><td class="num">$170.770.557</td></tr>
+        <td>Un acuerdo, no una partida</td></tr>
       <tr><td>Desembolsa los subsidios por avance de obra, no al final</td>
-        <td class="num">&minus;$2.450.994</td><td class="num">$172.639.506</td></tr>
-      <tr class="destaca"><td><b>LAS CUATRO JUNTAS</b></td>
-        <td class="num"><b>&minus;$37.750.947</b></td><td class="num"><b>$137.339.553</b></td></tr>
+        <td><b>Nada — es calendario, no monto</b></td></tr>
     </table>
   </div>
 
@@ -584,7 +611,16 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
     <div class="cifra ac"><div class="et">Obra</div><div class="vl">14 meses</div><div class="nt">de la primera paletada a la entrega</div></div>
     <div class="cifra"><div class="et">Arrancando en</div><div class="vl">oct 2026</div><div class="nt">se inaugura antes del 31-dic-2027</div></div>
     <div class="cifra"><div class="et">Escrituración</div><div class="vl">+5 meses</div><div class="nt">cierra con la siguiente administración</div></div>
-    <div class="cifra"><div class="et">Exposición máxima</div><div class="vl">$1.286 M</div><div class="nt">mes 14 · la pone el constructor</div></div>
+    <div class="cifra"><div class="et">Exposición máxima</div><div class="vl">$1.831 M</div><div class="nt">mes 14 · la pone el constructor</div></div>
+  </div>
+
+  <div class="nota">
+    <b>Y ese es el número que la cuarta palanca mueve de verdad.</b> Los $1.831 millones
+    son con la inicial de $20.000.000 entrando al arrancar y <b>nada más</b> durante los
+    catorce meses. <b>Si los subsidios se giran contra avance de obra en vez de al
+    escriturar, la exposición baja a $1.181 millones</b> &mdash; seiscientos cincuenta
+    millones menos de plata que hay que salir a conseguir. No le cuesta un peso al
+    Municipio: es un cambio de calendario, no de monto.
   </div>
 
   <div class="nota bien">
