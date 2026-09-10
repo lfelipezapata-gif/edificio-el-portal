@@ -445,22 +445,29 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
 
   <div class="rejilla r3" id="precioVenta">
     <div class="cifra ac"><div class="et">Por apartamento</div>
-      <div class="vl">100 SMMLV</div>
-      <div class="nt">$175.090.500 &middot; 62,19 m²</div></div>
+      <div class="vl">110 SMMLV</div>
+      <div class="nt">$192.599.550 &middot; 62,19 m²</div></div>
     <div class="cifra"><div class="et">Tope legal VIS 2026</div>
-      <div class="vl">74,1%</div>
+      <div class="vl">81,5%</div>
       <div class="nt">del m&aacute;ximo de 135 SMMLV ($236.372.175)</div></div>
     <div class="cifra"><div class="et">Las 20 viviendas</div>
-      <div class="vl">$3.502 M</div>
-      <div class="nt">$3.501.810.000</div></div>
+      <div class="vl">$3.852 M</div>
+      <div class="nt">$3.851.991.000</div></div>
   </div>
 
   <div class="nota bien">
-    <b>Por qué 100 SMMLV y no m&aacute;s.</b> El tope legal de la VIS son 135 SMMLV:
-    este precio va al <b>74% del m&aacute;ximo</b> que la ley permite cobrar.
-    Y quien pone los <b>$1.286 millones</b> que la obra necesita durante los catorce
-    meses, y quien corre el riesgo si una familia no cierra su cr&eacute;dito,
-    <b>es el constructor</b> &mdash; no el Municipio ni las familias.
+    <b>Por qué 110 SMMLV, y de dónde salieron los diez de más.</b> El precio se abrió
+    en 100 SMMLV. <b>Subió a 110 en la reunión del 10 de septiembre</b>, a petición del
+    Municipio, para <b>meter el urbanismo adentro</b>: parqueaderos &mdash;«el
+    parqueadero es una obligación»&mdash;, andén perimetral, zona verde con parquecito,
+    conexión al barrio, cerramiento, iluminación y drenaje.
+    <br><br>
+    El tope legal de la VIS son 135 SMMLV: este precio va al <b>81,5% del máximo</b> que
+    la ley permite cobrar, <b>y con el urbanismo incluido</b>. Proyectos comparables de
+    la zona &mdash;Luna Roja y otros&mdash; están en <b>120 SMMLV</b> con urbanismo.
+    Y quien pone la plata de la obra durante los catorce meses, y quien corre el riesgo
+    si una familia no cierra su crédito, <b>es el constructor</b> &mdash; no el Municipio
+    ni las familias.
   </div>
 
   <h3>El presupuesto detr&aacute;s del precio, rehecho a 2026</h3>
@@ -599,9 +606,13 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
   </div>
 
   <div class="nota">
-    <b>Lo que este presupuesto NO incluye</b> y hay que tenerlo presente al hablar de precio:
-    el lote, el urbanismo más allá del andén perimetral, diseños y licencias, conexiones
-    domiciliarias, interventoría, gerencia y el costo financiero del ciclo completo &mdash; 14 meses de obra más 5 de escrituración.
+    <b>Esto es el presupuesto de OBRA. Lo que va por fuera de él</b> —y sí está dentro
+    del precio de 110 SMMLV— es el <b>urbanismo</b> *(presupuestado aparte: parqueaderos,
+    andén, zona verde, conexión al barrio, cerramiento, iluminación y drenaje)*, los
+    diseños y licencias, las conexiones domiciliarias, la constitución de la propiedad
+    horizontal, las pólizas, la interventoría, la gerencia y el costo financiero del ciclo
+    completo &mdash; 14 meses de obra más 5 de escrituración. <b>El lote no entra en el
+    precio: lo aporta el Municipio en especie.</b>
   </div>
 </section>
 
@@ -620,12 +631,14 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
         <input type="range" id="sIng" min="10" max="35" value="20" step="1">
       </div>
       <div class="ctrl">
-        <label>Subsidio de la caja de compensación, según Sisbén</label>
-        <select id="sSub">
-          <option value="20" selected>Sisbén C9–D20 &mdash; 20 SMMLV</option>
-          <option value="30">Sisbén A1–C8 &mdash; 30 SMMLV</option>
-          <option value="0">Sin subsidio de caja</option>
-        </select>
+        <!-- ⬛ 10-SEP: el alcalde lo corrigió en la reunión — «el Sisbén no
+             sirve para nada… la caja de compensación se rige por los ingresos».
+             0 a 2 SMMLV → 30 salarios · 2 a 4 → 20 salarios. Por eso el
+             subsidio ya no se elige: sale solo del deslizador de ingreso. -->
+        <label>Subsidio de la caja de compensación</label>
+        <div class="vr" id="vSub">&mdash;</div>
+        <select id="sSub" style="display:none"><option value="0"></option></select>
+        <div style="color:var(--suave);font-size:12.5px" id="dRegla"></div>
         <div style="color:var(--suave);font-size:12.5px;margin-top:7px">
           + <b>VIVA, 7 SMMLV ($12.256.335)</b>, que va siempre y no se elige.
         </div>
@@ -646,19 +659,18 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
              aditivas. Cada cifra sale corrida del modelo en
              precio_de_venta.py, y las cuatro juntas dan $137.339.553, no
              la suma de las cuatro reducciones ($40,4 M). -->
-        <div class="pal" data-p="175090500"><input type="radio" name="pal">
-          <div>Ninguna &mdash; como está hoy<span class="ah">$175.090.500</span></div></div>
-        <div class="pal on" data-p="150324732"><input type="radio" name="pal" checked>
-          <div>Garantiza reemplazar a la familia que no cierra
-          <span class="ah">$150.324.732 &middot; no le cuesta un peso al Municipio</span></div></div>
-        <div class="pal" data-p="166187986"><input type="radio" name="pal">
-          <div>Ejecuta el urbanismo<span class="ah">$166.187.986</span></div></div>
-        <div class="pal" data-p="170770557"><input type="radio" name="pal">
-          <div>Exonera conexiones domiciliarias<span class="ah">$170.770.557</span></div></div>
-        <div class="pal" data-p="172639506"><input type="radio" name="pal">
-          <div>Desembolsa subsidios por avance de obra<span class="ah">$172.639.506</span></div></div>
-        <div class="pal" data-p="137339553"><input type="radio" name="pal">
-          <div>Las cuatro juntas<span class="ah">$137.339.553</span></div></div>
+        <div class="pal on" data-p="192599550"><input type="radio" name="pal" checked>
+          <div>Como quedó acordado<span class="ah">$192.599.550 &middot; 110 SMMLV</span></div></div>
+        <div class="pal" data-p="210382280"><input type="radio" name="pal">
+          <div>Si no se garantiza el reemplazo<span class="ah">$210.382.280 &middot; 120,2 SMMLV</span></div></div>
+        <div class="pal" data-p="184119472"><input type="radio" name="pal">
+          <div>Si el Municipio ejecuta el urbanismo<span class="ah">$184.119.472 &middot; 105,2</span></div></div>
+        <div class="pal" data-p="188876981"><input type="radio" name="pal">
+          <div>Si exonera conexiones domiciliarias<span class="ah">$188.876.981 &middot; 107,9</span></div></div>
+        <div class="pal" data-p="184369464"><input type="radio" name="pal">
+          <div>Si desembolsa subsidios por avance<span class="ah">$184.369.464 &middot; 105,3</span></div></div>
+        <div class="pal" data-p="172908857"><input type="radio" name="pal">
+          <div>Las tres juntas<span class="ah">$172.908.857 &middot; 98,8</span></div></div>
       </div>
     </div>
 
@@ -703,11 +715,19 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
   </div>
 
   <div class="nota mal">
-    <b>La tensión del negocio, en una línea.</b> El precio que deja el proyecto tranquilo
-    —$175.090.500— solo lo cierra un hogar con <b>2 SMMLV o más</b> Y subsidio de
-    <b>30 SMMLV</b>. Y los hogares de Sisbén A1–C8, que son los que reciben 30 SMMLV,
-    rara vez tienen 2 SMMLV formales. <b>Ese es el filtro real, y por eso el perfil de
-    ingreso y Sisbén de las veinte familias es el dato que falta.</b>
+    <b>La tensión del negocio, en una línea.</b> A <b>110 SMMLV ($192.599.550)</b> el
+    cierre solo lo logra un hogar de <b>2 salarios mínimos hacia arriba</b>. Y acá está
+    lo bueno de la regla nueva que corrigió el alcalde: <b>el hogar de exactamente 2
+    SMMLV cae en el tramo de 0 a 2 y recibe el subsidio de 30</b>, así que alcanza
+    $214.139.817 y le sobran $21.540.267. <b>El filtro real es un solo número: dos
+    salarios mínimos.</b> Por debajo no cierra ni con el subsidio más alto — a 1,5 SMMLV
+    le faltan $10.798.816.
+    <br><br>
+    ⬛ <b>Y cae el nudo que este mismo bloque describía hasta ayer:</b> decía que los
+    hogares con subsidio de 30 «rara vez tienen 2 SMMLV formales», porque el subsidio
+    se creía atado al Sisbén. <b>Ya no: va por ingresos</b>, y el tramo de 30 salarios
+    llega justo hasta los 2 SMMLV. <b>El grupo que antes parecía imposible es
+    exactamente el que cierra.</b>
   </div>
 
   <div class="nota">
@@ -740,7 +760,7 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
         <td>Empresa de Vivienda de Antioquia</td>
         <td class="num">$12.256.335</td><td class="num">$245.126.700</td></tr>
       <tr><td><b>Subsidio de la caja de compensación</b><br>
-        <span style="color:var(--suave);font-size:12.5px">20 o 30 SMMLV según el Sisbén del hogar</span></td>
+        <span style="color:var(--suave);font-size:12.5px">20 o 30 SMMLV según el <b>ingreso</b> del hogar</span></td>
         <td>Comfama</td>
         <td class="num">$35.018.100<br>a $52.527.150</td>
         <td class="num">$700.362.000<br>a $1.050.543.000</td></tr>
@@ -749,20 +769,24 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
         de la APV, con doble firma &mdash; presidente de la junta y constructor</span></td>
         <td><b>La familia, de su ahorro</b></td>
         <td class="num"><b>$20.000.000</b></td><td class="num"><b>$400.000.000</b></td></tr>
-      <tr><td>Suman, con la caja en 20 SMMLV</td><td>&nbsp;</td>
-        <td class="num">$67.274.435<br><span style="color:var(--suave);font-size:12.5px">38% del valor</span></td>
+      <tr><td>Suman, con la caja en <b>30</b> SMMLV <span style="color:var(--suave);font-size:12.5px">(hogar de hasta 2 SMMLV)</span></td><td>&nbsp;</td>
+        <td class="num">$84.783.485<br><span style="color:var(--suave);font-size:12.5px">44,0% del valor</span></td>
+        <td class="num">$1.695.669.700</td></tr>
+      <tr><td>Suman, con la caja en <b>20</b> SMMLV <span style="color:var(--suave);font-size:12.5px">(hogar de 2 a 4 SMMLV)</span></td><td>&nbsp;</td>
+        <td class="num">$67.274.435<br><span style="color:var(--suave);font-size:12.5px">34,9% del valor</span></td>
         <td class="num">$1.345.488.700</td></tr>
       <tr><td>Y el resto lo pone el <b>banco</b></td><td>Crédito hipotecario a 20 años</td>
-        <td class="num">$107.816.065<br><span style="color:var(--suave);font-size:12.5px">62% del valor</span></td>
-        <td class="num">$2.156.321.300</td></tr>
+        <td class="num">$107,8 a $125,3 M<br><span style="color:var(--suave);font-size:12.5px">56% a 65% del valor</span></td>
+        <td class="num">&mdash;</td></tr>
     </table>
   </div>
 
   <div class="nota bien">
     <b>Con las cuatro puestas, la familia cierra.</b> Un hogar de <b>2 salarios mínimos</b>
-    con el subsidio de 20 SMMLV alcanza <b>$196.630.767</b> contra un apartamento de
-    $175.090.500. Y un hogar de <b>1,5</b> también cierra <b>si le sale el subsidio de
-    30</b>. <b>Quitar cualquiera de las cuatro tumba el cierre de casi todos los hogares
+    &mdash;que por la regla nueva recibe el subsidio de <b>30</b>&mdash; alcanza
+    <b>$214.139.817</b> contra un apartamento de <b>$192.599.550</b>: le sobran
+    $21.540.267. <b>Y ese es el piso: por debajo de 2 salarios mínimos ya no cierra</b>,
+    ni con el subsidio más alto. <b>Quitar cualquiera de las cuatro tumba el cierre de casi todos los hogares
     de la lista</b> &mdash; no es una preferencia de la constructora, es aritmética
     bancaria: el banco financia hasta el 80% del valor, y ese 20% restante sale de
     subsidios más inicial.
@@ -865,24 +889,30 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
     aparece, el proyecto sigue en pie.
   </div>
 
-  <h3>Las cuatro palancas</h3>
+  <h3>Lo que sostiene el precio, y lo que lo bajaría</h3>
   <div class="tarjeta">
     <table>
-      <tr><th>Palanca</th><th class="num">Baja el precio</th><th class="num">Queda en</th></tr>
-      <tr><td>Ninguna &mdash; como está hoy</td><td class="num">&mdash;</td><td class="num">$175.090.500</td></tr>
-      <tr class="destaca"><td><b>Garantiza reemplazar a la familia que no cierra crédito</b><br>
-        <span style="color:var(--suave);font-size:12.5px">es la cláusula del mes 10 puesta
-        por escrito &mdash; no le cuesta un peso: la Alcaldía ya tiene la lista de elegibles</span></td>
-        <td class="num">&minus;$24.765.768</td><td class="num">$150.324.732</td></tr>
-      <tr><td>Ejecuta el urbanismo<br>
-        <span style="color:var(--suave);font-size:12.5px">los 475,10 m² del cuadro de áreas que el presupuesto no cubre</span></td>
-        <td class="num">&minus;$8.902.514</td><td class="num">$166.187.986</td></tr>
-      <tr><td>Exonera las conexiones domiciliarias</td>
-        <td class="num">&minus;$4.319.943</td><td class="num">$170.770.557</td></tr>
-      <tr><td>Desembolsa los subsidios por avance de obra, no al final</td>
-        <td class="num">&minus;$2.450.994</td><td class="num">$172.639.506</td></tr>
-      <tr class="destaca"><td><b>LAS CUATRO JUNTAS</b></td>
-        <td class="num"><b>&minus;$37.750.947</b></td><td class="num"><b>$137.339.553</b></td></tr>
+      <tr><th>&nbsp;</th><th class="num">Queda en</th><th class="num">SMMLV</th></tr>
+      <tr class="destaca"><td><b>Como quedó acordado el 10 de septiembre</b><br>
+        <span style="color:var(--suave);font-size:12.5px">con el urbanismo adentro</span></td>
+        <td class="num"><b>$192.599.550</b></td><td class="num"><b>110,0</b></td></tr>
+      <tr class="destaca"><td>🔴 <b>Si el Municipio NO garantiza el reemplazo de la familia
+        que no cierra</b><br>
+        <span style="color:var(--suave);font-size:12.5px">es decir, si la cláusula del mes 10
+        no queda firmada: el mismo proyecto necesitaría más precio, no menos</span></td>
+        <td class="num"><b>$210.382.280</b></td><td class="num"><b>120,2</b></td></tr>
+      <tr><td colspan="3" style="padding-top:16px;color:var(--suave);font-size:12.5px">
+        <b style="color:var(--crema)">Y estas tres sí lo bajan:</b></td></tr>
+      <tr><td>El Municipio <b>ejecuta el urbanismo</b> con su maquinaria<br>
+        <span style="color:var(--suave);font-size:12.5px">los 471 m² de parqueaderos, andén,
+        zona verde y conexión al barrio &mdash; $136.681.075 presupuestados</span></td>
+        <td class="num">$184.119.472</td><td class="num">105,2</td></tr>
+      <tr><td><b>Exonera las conexiones domiciliarias</b></td>
+        <td class="num">$188.876.981</td><td class="num">107,9</td></tr>
+      <tr><td><b>Desembolsa los subsidios por avance de obra</b>, no al final</td>
+        <td class="num">$184.369.464</td><td class="num">105,3</td></tr>
+      <tr class="destaca"><td><b>LAS TRES JUNTAS</b></td>
+        <td class="num"><b>$172.908.857</b></td><td class="num"><b>98,8</b></td></tr>
     </table>
   </div>
 
@@ -931,31 +961,32 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
     <table>
       <tr><th>Escenario</th><th class="num">Utilidad</th><th class="num">Margen</th></tr>
       <tr><td>Todo como está previsto</td>
-        <td class="num">$913.529.701</td><td class="num">26,1%</td></tr>
+        <td class="num">$1.234.254.042</td><td class="num">32,0%</td></tr>
       <tr><td>La obra se pasa 10%</td>
-        <td class="num">$700.321.769</td><td class="num">20,0%</td></tr>
+        <td class="num">$1.021.046.110</td><td class="num">26,5%</td></tr>
       <tr><td>La obra se pasa 20%</td>
-        <td class="num">$487.113.837</td><td class="num">13,9%</td></tr>
+        <td class="num">$807.838.178</td><td class="num">21,0%</td></tr>
       <tr><td>Escrituración de todas +6 meses</td>
-        <td class="num">$757.021.701</td><td class="num">21,6%</td></tr>
+        <td class="num">$1.075.633.878</td><td class="num">27,9%</td></tr>
       <tr><td>13 unidades sustituidas al mes 10 <span style="color:var(--suave);font-size:12.5px">(+6 m cada una)</span></td>
-        <td class="num">$718.974.674</td><td class="num">20,5%</td></tr>
+        <td class="num">$1.020.243.513</td><td class="num">26,5%</td></tr>
       <tr><td>7 unidades sin reemplazo aprobado <span style="color:var(--suave);font-size:12.5px">(+12 m cargadas)</span></td>
-        <td class="num">$704.008.903</td><td class="num">20,1%</td></tr>
+        <td class="num">$1.003.781.165</td><td class="num">26,1%</td></tr>
       <tr class="destaca"><td><b>PEOR CASO REALISTA</b><br>
         <span style="color:var(--suave);font-size:12.5px">obra +10% &middot; escrituración
         +6 m &middot; 7 sustituidas &middot; 6 sin reemplazo</span></td>
-        <td class="num"><b>$244.176.225</b></td><td class="num"><b>7,0%</b></td></tr>
+        <td class="num"><b>$534.353.436</b></td><td class="num"><b>13,9%</b></td></tr>
       <tr><td>Catástrofe <span style="color:var(--suave);font-size:12.5px">obra +20%,
         escrit. +6 m, y las 20 unidades castigadas a la vez</span></td>
-        <td class="num" style="color:var(--rojo)">&minus;$193.840.395</td>
-        <td class="num" style="color:var(--rojo)">&minus;5,5%</td></tr>
+        <td class="num" style="color:var(--rojo)">$75.384.737</td>
+        <td class="num" style="color:var(--rojo)">2,0%</td></tr>
     </table>
   </div>
 
   <div class="nota bien">
-    🟢 <b>El punto de quiebre está en 18 de las 20 unidades sin reemplazo aprobado</b>,
-    con obra +10% y escrituración +6 meses. Con 17 todavía queda utilidad.
+    🟢 <b>A 110 SMMLV el proyecto ya no tiene punto de quiebre por sustituciones:</b>
+    con obra +10% y escrituración +6 meses, <b>aguanta las 20 unidades cargadas doce
+    meses y sigue en positivo</b>. A 100 SMMLV el quiebre estaba en 18 de 20.
     <b>La prueba vieja decía que TRES familias que no cerraran dejaban el proyecto en
     rojo</b> &mdash; decía eso porque suponía que la unidad se perdía. Con bolsa detrás
     se financia, no se pierde, <b>y el proyecto pasa de frágil a robusto sin que haya
@@ -967,14 +998,14 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
     alcance a entrar a la cuenta conjunta durante los catorce meses:
     <table style="margin-top:11px">
       <tr><th>Recaudo en obra</th><th class="num">Peor caso</th><th class="num">Margen</th><th class="num">Exposición</th></tr>
-      <tr><td>Solo la inicial &mdash; 11,4%</td><td class="num">$244.176.225</td>
-        <td class="num">7,0%</td><td class="num">$2.010 M</td></tr>
-      <tr><td>+ VIVA girado en obra &mdash; 18,4%</td><td class="num">$308.778.471</td>
-        <td class="num">8,8%</td><td class="num">$1.765 M</td></tr>
-      <tr class="destaca"><td>+ VIVA + caja de 20 &mdash; 38,4%</td><td class="num">$490.192.514</td>
-        <td class="num">14,0%</td><td class="num">$1.101 M</td></tr>
-      <tr><td>+ VIVA + caja de 30 &mdash; 48,4%</td><td class="num">$578.205.502</td>
-        <td class="num">16,5%</td><td class="num">$801 M</td></tr>
+      <tr><td>Solo la inicial &mdash; 10,4%</td><td class="num">$534.353.436</td>
+        <td class="num">7,0%</td><td class="num">$2.035 M</td></tr>
+      <tr><td>+ VIVA girado en obra &mdash; 16,7%</td><td class="num">$598.955.682</td>
+        <td class="num">15,5%</td><td class="num">$1.789 M</td></tr>
+      <tr class="destaca"><td>+ VIVA + caja de 20 &mdash; 34,9%</td><td class="num">$780.505.749</td>
+        <td class="num">20,3%</td><td class="num">$1.125 M</td></tr>
+      <tr><td>+ VIVA + caja de 30 &mdash; 44,0%</td><td class="num">$868.518.737</td>
+        <td class="num">22,5%</td><td class="num">$824 M</td></tr>
     </table>
     <b>Girar los subsidios contra avance de obra duplica la utilidad del peor caso y le
     quita $900 millones a la exposición.</b> No cuesta un peso: es calendario.
@@ -1001,11 +1032,11 @@ footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--borde);
     <div class="cifra ac"><div class="et">Obra</div><div class="vl">14 meses</div><div class="nt">de la primera paletada a la entrega</div></div>
     <div class="cifra"><div class="et">Arrancando en</div><div class="vl">oct 2026</div><div class="nt">se inaugura antes del 31-dic-2027</div></div>
     <div class="cifra"><div class="et">Escrituración</div><div class="vl">+5 meses</div><div class="nt">cierra con la siguiente administración</div></div>
-    <div class="cifra"><div class="et">Exposición máxima</div><div class="vl">$1.831 M</div><div class="nt">mes 14 · la pone el constructor</div></div>
+    <div class="cifra"><div class="et">Exposición máxima</div><div class="vl">$1.856 M</div><div class="nt">mes 14 · la pone el constructor</div></div>
   </div>
 
   <div class="nota">
-    <b>Y ese es el número que la cuarta palanca mueve de verdad.</b> Los $1.831 millones
+    <b>Y ese es el número que la cuarta palanca mueve de verdad.</b> Los $1.856 millones
     son con la inicial de $20.000.000 entrando al arrancar y <b>nada más</b> durante los
     catorce meses. Con los subsidios girados contra avance de obra en vez de al
     escriturar, <b>la exposición baja a $885 millones</b> con la caja en 20 SMMLV y a
@@ -1288,7 +1319,7 @@ function pinta(i){
 pinta(0);
 
 /* ── calculadora del cierre financiero ────────────────── */
-const SMMLV=1750905, TOPE=236372175, BASE=175090500;
+const SMMLV=1750905, TOPE=236372175, BASE=192599550;   /* 110 SMMLV desde el 10-sep */
 const VIVA=7*SMMLV;              /* $12.256.335 — va siempre, no se elige */
 const TASA=0.1239, ANOS=20, LTV=0.80, CUOTA_ING=0.40;
 const pl=n=>'$'+Math.round(n).toLocaleString('es-CO');
@@ -1307,8 +1338,14 @@ function calcular(){
      encima del subsidio de la caja de compensación. Hasta el 9-sep la
      calculadora no los tenía y por eso subestimaba en $12.256.335 lo que
      la familia alcanza a cerrar. */
-  const caja=+document.getElementById('sSub').value*SMMLV;
+  /* La regla la corrigió el alcalde el 10-sep: el subsidio de la caja va por
+     INGRESOS del hogar, no por Sisbén.  0–2 SMMLV → 30 salarios · 2–4 → 20. */
+  const caja=(smm<=2?30:20)*SMMLV;
   const sub=caja+VIVA;
+  document.getElementById('vSub').textContent=(caja/SMMLV).toFixed(0)+' SMMLV · '+pl(caja);
+  document.getElementById('dRegla').textContent = smm<=2
+    ? 'Hasta 2 salarios mínimos le corresponden 30 salarios de subsidio.'
+    : 'Entre 2 y 4 salarios mínimos le corresponden 20 salarios de subsidio.';
   const aho=+document.getElementById('sAho').value*1e6;
 
   document.getElementById('vIng').textContent=smm.toFixed(1).replace('.',',')+' SMMLV';
